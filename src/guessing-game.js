@@ -1,4 +1,5 @@
 class GuessingGame {
+  assumption = 0
     setRange(min, max) {
       if (min > max) throw Error ("Error: min can't be bigger than max.")
       this.min = min
@@ -10,15 +11,16 @@ class GuessingGame {
     }
 
     guess() {
-      return this.findMiddle()
+      this.assumption = this.findMiddle()
+      return this.assumption
     }
 
     lower() {
-      this.max = this.findMiddle()
+      this.max = this.assumption
     }
 
     greater() {
-      this.min = this.findMiddle()
+      this.min = this.assumption
     }
 }
 
